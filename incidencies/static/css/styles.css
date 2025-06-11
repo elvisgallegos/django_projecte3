@@ -1,0 +1,77 @@
+:root {
+  --color-primari: #007bff;
+  --color-primari-fosc: #0056b3;
+  --color-fons: #f0f6ff;
+  --color-text: #1c1c1c;
+  --color-taula-capcalera: #cfe2ff;
+  --color-taula-linia: #ffffff;
+  --color-borde: #b6d4fe;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--color-fons);
+  color: var(--color-text);
+  padding: 1.5em;
+}
+
+h1 {
+  color: var(--color-primari-fosc);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  background-color: var(--color-taula-linia);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--color-borde);
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-taula-capcalera);
+  color: var(--color-primari-fosc);
+}
+
+tr:hover {
+  background-color: #e9f2ff;
+}
+
+/* ✅ Estils unificats per a enllaços i botons */
+.btn {
+  background-color: var(--color-primari);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-primari-fosc);
+}
+
+input[type="text"],
+select {
+  padding: 0.5em;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  margin-right: 0.5em;
+}
+
+form {
+  margin-bottom: 1em;
+}

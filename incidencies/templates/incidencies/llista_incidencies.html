@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Llista d'incidències</h1>
+
+<form method="get" id="filters" class="flex gap-2 items-center mb-4">
+  <input
+    type="text"
+    name="q"
+    value="{{ query }}"
+    placeholder="Cerca..."
+    class="border border-gray-300 rounded px-2 py-1"
+    oninput="this.form.submit()"
+  />
+
+  <select name="assigned_to" onchange="this.form.submit()" class="border border-gray-300 rounded px-2 py-1">
+    <option value="">-- Tots els treballadors --</option>
+    {% for t in treballadors %}
+      <option value="{{ t.id }}" {% if assigned_to|default:'' == t.id|stringformat:"s" %}selected{% endif %}>
+        {{ t }}
+      </option>
+    {% endfor %}
+  </select>
+</form>
+
+{% if incidencies %}
+<table>
+  <thead>
+    <tr>
+      <th>Títol</th>
+      <th>Estat</th>
+      <th>Assignada a</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for incidencia in incidencies %}
+    <tr>
+      <td>{{ incidencia.title }}</td>
+      <td>{{ incidencia.get_status_display }}</td>
+      <td>{{ incidencia.assigned_to }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No hi ha incidències que coincideixin amb la cerca.</p>
+{% endif %}
+{% endblock %}
